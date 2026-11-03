@@ -1,0 +1,372 @@
+/* ===== Basic setup ===== */
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;   /* makes the hidden attribute always work */
+}
+
+:root {
+  --navy: #0b1d3a;            /* sidebar colour */
+  --acc: #ff6b2c;             /* orange accent colour */
+}
+
+body {
+  margin: 0;
+  font-family: Segoe UI, Arial, sans-serif;
+  background: #f3f5f9;
+  color: #1d2433;
+}
+
+.muted {
+  color: #6b7385;
+  font-size: 13px;
+}
+
+.err {
+  color: #c62828;
+  min-height: 18px;
+  margin: 6px 0;
+}
+
+/* ===== Logo ===== */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* ===== Login page ===== */
+#login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--navy), #16335f);
+}
+
+.box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: min(360px, 92vw);
+}
+
+.box .logo {
+  color: var(--navy);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ===== Forms and buttons ===== */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 9px;
+  margin-top: 4px;
+  border: 1px solid #cfd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+.btn {
+  background: var(--acc);
+  color: #fff;
+  border: 0;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.g {
+  background: #e3e7ef;        /* grey button */
+  color: #1d2433;
+}
+
+/* ===== Main layout (sidebar + content) ===== */
+#app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.side {
+  width: 220px;
+  background: var(--navy);
+  padding: 18px 12px;
+  flex-shrink: 0;
+}
+
+.side .logo {
+  margin: 0 8px 20px;
+}
+
+nav a {
+  display: block;
+  color: #c9d3e6;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+nav a:hover,
+nav a.on {
+  background: #1b3563;
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+}
+
+.top {
+  background: #fff;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px #0001;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+#view {
+  padding: 20px 24px;
+}
+
+/* ===== Dashboard cards ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  border-left: 5px solid var(--acc);
+  box-shadow: 0 1px 3px #0001;
+}
+
+.card span {
+  font-size: 30px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.card p {
+  margin: 2px 0 0;
+  color: #6b7385;
+  font-size: 13px;
+}
+
+/* ===== Search / button bar above tables ===== */
+.bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.bar input {
+  max-width: 280px;
+  margin: 0;
+}
+
+/* ===== Tables ===== */
+.tw {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px #0001;
+  margin-bottom: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: #eef1f7;
+  text-align: left;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+td {
+  padding: 10px;
+  border-top: 1px solid #edf0f5;
+}
+
+.empty {
+  text-align: center;
+  color: #8a92a3;
+}
+
+/* Edit / Delete buttons inside tables */
+.act button {
+  border: 0;
+  background: #e3e7ef;
+  padding: 5px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1px;
+}
+
+.act button.d {
+  background: #fde3e3;        /* red delete button */
+  color: #c62828;
+}
+
+/* ===== Status badges ===== */
+.b {
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Paid,
+.Active {
+  background: #dff5e3;        /* green */
+  color: #1b7a2e;
+}
+
+.PartiallyPaid,
+.NoPlan {
+  background: #fff0cf;        /* yellow */
+  color: #9a6700;
+}
+
+.Pending,
+.Expired {
+  background: #fde3e3;        /* red */
+  color: #c62828;
+}
+
+/* ===== Popup window (dialog) ===== */
+dialog {
+  border: 0;
+  border-radius: 12px;
+  padding: 22px;
+  width: min(640px, 94vw);
+  max-height: 90vh;
+}
+
+dialog::backdrop {
+  background: #0008;
+}
+
+pre {
+  background: #f3f5f9;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ===== Receipt ===== */
+.rc {
+  border: 2px dashed #999;
+  padding: 16px;
+}
+
+.rc h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* ===== Mobile screens ===== */
+@media (max-width: 800px) {
+  #app {
+    flex-direction: column;
+  }
+
+  .side {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .side .logo {
+    margin-bottom: 8px;
+  }
+
+  nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 4px;
+  }
+
+  nav a {
+    white-space: nowrap;
+  }
+}
+
+/* ===== Printing (reports and receipts) ===== */
+@media print {
+  .side,
+  .noprint,
+  .btn,
+  .act {
+    display: none !important;
+  }
+
+  body[data-print=dlg] #app {
+    display: none;
+  }
+
+  body[data-print=dlg] dialog .row {
+    display: none;
+  }
+
+  dialog {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+    max-height: none;
+  }
+
+  #view {
+    padding: 0;
+  }
+}
